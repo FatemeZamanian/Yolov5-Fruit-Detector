@@ -8,6 +8,10 @@ from PySide6.QtWidgets import QApplication, QWidget,QFileDialog
 from PySide6.QtCore import QFile
 from PySide6.QtUiTools import QUiLoader
 
+from PIL import ImageQt
+from PyQt5.QtGui import QImage
+from PySide6.QtGui import QPixmap
+
 class FruitsDetection(QWidget):
     def __init__(self):
         super(FruitsDetection, self).__init__()
@@ -28,8 +32,20 @@ class FruitsDetection(QWidget):
         
 
 
-    def showfile(self):
-        pass
+    def convertCVImage2QtImage(cv_img):
+        cv_img = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
+        height, width, channel = cv_img.shape
+        bytesPerLine = 3 * width
+        qimg = QImage(cv_img.data, width, height, bytesPerLine, QImage.Format_RGB888)
+        return QPixmap.fromImage(qimg)
+
+
+    def showfile(self,dir):
+        #how use and access save dir?
+        t=cv2.imread(dir)
+        t= self.convertCVImage2QtImage(t)
+        pixmap = QPixmap(t)
+        self.ui.lbl_out.setPixmap(pixmap)
 
 
 
@@ -67,7 +83,7 @@ QApplication(sys.argv)
 
 @torch.no_grad()
 def run(weights='best.pt',  # model.pt path(s)
-        source=None,  # file/dir/URL/glob, 0 for webcam
+        source=widget.file,  # file/dir/URL/glob, 0 for webcam
         imgsz=640,  # inference size (pixels)
         conf_thres=0.25,  # confidence threshold
         iou_thres=0.45,  # NMS IOU threshold
@@ -280,6 +296,7 @@ def run(weights='best.pt',  # model.pt path(s)
         strip_optimizer(weights)  # update model (to fix SourceChangeWarning)
 
     print(f'Done. ({time.time() - t0:.3f}s)')
+    widget.showfile(save_dir)
 
 
 # def parse_opt():
