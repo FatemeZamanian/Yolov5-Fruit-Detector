@@ -12,7 +12,7 @@ class FruitsDetection(QWidget):
     def __init__(self):
         super(FruitsDetection, self).__init__()
         loader = QUiLoader()
-        self.ui = loader.load("/home/fateme/Desktop/final-stable-thesis/yolov5/FruitsDetections/form.ui")
+        self.ui = loader.load("FruitsDetections/form.ui")
         self.ui.show()
         self.file=''
         self.ui.btn_address.clicked.connect(self.getfile)
