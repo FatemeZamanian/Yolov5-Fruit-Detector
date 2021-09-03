@@ -45,8 +45,6 @@ class ProcessImage(QThread):
             pass
 
 
-
-
 class show(QThread):
     signal_show_image = Signal(object)
 
@@ -69,8 +67,6 @@ class show(QThread):
             self.video.release()
         except:
             pass
-
-
 
 
 class MainWindow(QWidget):
