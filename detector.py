@@ -46,10 +46,10 @@ class Detector:
         if self.device.type != 'cpu':
             self.model(torch.zeros(1, 3, imgsz, imgsz).to(self.device).type_as(next(self.model.parameters())))  # run once
         
-    def detect(self, file_name):
-        img = cv2.imread(file_name)
+    def detect(self, img):
+        # img = cv2.imread(file_name)
 
-        file_name = Path(file_name).name
+        # file_name = Path(file_name).name
         original_image = img.copy()
 
         t0 = time.time()
@@ -69,7 +69,7 @@ class Detector:
         # Apply NMS
         pred = non_max_suppression(pred, args.conf_thres, args.iou_thres, classes=args.classes, agnostic=args.agnostic_nms)
 
-        save_path = os.path.join(self.save_dir, file_name)   
+        # save_path = os.path.join(self.save_dir, file_name)   
         # Process detections
         for det in pred:  # detections per image
             if len(det):
@@ -83,6 +83,6 @@ class Detector:
                     plot_one_box(xyxy, original_image, label=label, color=colors(c, True), line_thickness=2)
                         
         # Save results (image with detections)
-        cv2.imwrite(save_path, original_image)
+        # cv2.imwrite(save_path, original_image)
         print(f'Done. ({time.time() - t0:.3f}s)')
         return original_image
