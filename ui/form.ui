@@ -58,6 +58,9 @@
        <property name="text">
         <string>Input</string>
        </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
@@ -70,6 +73,9 @@
        </property>
        <property name="text">
         <string>Output</string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
