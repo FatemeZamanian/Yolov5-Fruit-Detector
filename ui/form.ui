@@ -32,20 +32,53 @@
    <string>FruitsDetection</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_4">
-   <item row="0" column="0">
-    <widget class="QLabel" name="lbl_out">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
+   <item row="6" column="0">
+    <widget class="QPushButton" name="btn_start">
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(138, 226, 52);</string>
      </property>
      <property name="text">
-      <string/>
+      <string>Start</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item row="4" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="lbl_input">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(243, 243, 243);</string>
+       </property>
+       <property name="text">
+        <string>Input</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lbl_output">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(243, 243, 243);</string>
+       </property>
+       <property name="text">
+        <string>Output</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="0">
     <layout class="QHBoxLayout">
      <property name="sizeConstraint">
       <enum>QLayout::SetMinAndMaxSize</enum>
@@ -77,16 +110,6 @@
       </widget>
      </item>
     </layout>
-   </item>
-   <item row="2" column="0">
-    <widget class="QPushButton" name="btn_start">
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(138, 226, 52);</string>
-     </property>
-     <property name="text">
-      <string>Start</string>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>

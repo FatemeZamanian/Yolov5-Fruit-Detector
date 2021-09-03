@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.0, 2021-09-03T13:07:16. -->
+<!-- Written by QtCreator 4.11.0, 2021-09-03T14:51:56. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -141,11 +141,11 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">main</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/sajjad/Documents/latex/zamanian/Fruit-Detection/main.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/sajjad/Documents/latex/zamanian/Fruit-Detection/main.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">main2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/sajjad/Documents/latex/zamanian/FruitsDetection/main.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/sajjad/Documents/latex/zamanian/FruitsDetection/main.py</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{3434273f-fbfb-4db0-a71b-e80d38a8b1e3}</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/sajjad/Documents/latex/zamanian/Fruit-Detection/main.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/sajjad/Documents/latex/zamanian/FruitsDetection/main.py</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -155,7 +155,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/sajjad/Documents/latex/zamanian/Fruit-Detection</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/sajjad/Documents/latex/zamanian/FruitsDetection</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

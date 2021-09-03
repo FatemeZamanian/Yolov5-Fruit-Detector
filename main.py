@@ -1,13 +1,12 @@
 import sys
 import os
 
-from PySide6.QtWidgets import QApplication, QWidget,QFileDialog
+from PySide6.QtWidgets import QApplication, QWidget, QFileDialog
 from PySide6.QtCore import QFile
 from PySide6.QtUiTools import QUiLoader
-from PyQt5.QtGui import QImage
-from PySide6.QtGui import QPixmap
-import cv2
+from PySide6.QtGui import QPixmap, QImage
 from PySide6.QtCore import QThread, Signal, QDir
+import cv2
 
 
 def convertCVImage2QtImage(cv_img):
@@ -18,11 +17,12 @@ def convertCVImage2QtImage(cv_img):
     return QPixmap.fromImage(qimg)
 
 
-class show_video(QThread):
+class ProcessVideo(QThread):
     signal_show_frame = Signal(object)
 
-    def __init__(self):
-        super(show_video, self).__init__()
+    def __init__(self, fileName):
+        super(self).__init__()
+        self.fileName = fileName
 
     def run(self):
         self.video = cv2.VideoCapture(0)
@@ -41,6 +41,19 @@ class show_video(QThread):
             pass
 
 
+class ProcessImage(QThread):
+    signal_show_image = Signal(object)
+
+    def __init__(self, fileName):
+        QThread.__init__(self)
+        self.fileName = fileName
+
+        from detector import Detector
+        self.detector = Detector()
+
+    def run(self):
+        image = self.detector.detect(self.fileName)
+        self.signal_show_image.emit(image)
 
 
 class MainWindow(QWidget):
@@ -48,21 +61,25 @@ class MainWindow(QWidget):
         super(MainWindow, self).__init__()
         loader = QUiLoader()
         self.ui = loader.load("ui/form.ui")
-        self.ui.show()
-        self.ui.btn_browse.clicked.connect(self.getfile)
-        self.ui.btn_start.clicked.connect(self.getfile)
-        self.file=''
-
-    def getfile(self):
-        self.fileName = QFileDialog.getOpenFileName(self,'Single File','C:\'','*.jpg *.mp4 *.jpeg *.png *.avi')
-        self.file = self.fileName[0]
-        self.ui.txt_address.setText(str(self.file))
         
-        self.ui.lbl_out.setPixmap(self.file)
-        return self.file
+        self.ui.btn_browse.clicked.connect(self.getFile)
+        self.ui.btn_start.clicked.connect(self.predict)
+
+        self.ui.show()
+
+    def getFile(self):
+        self.fileName = QFileDialog.getOpenFileName(self,'Single File','C:\'','*.jpg *.mp4 *.jpeg *.png *.avi')[0]
+        self.ui.txt_address.setText(str(self.fileName))
+        self.ui.lbl_input.setPixmap(self.fileName)
         
     def predict(self):
-        pass
+        self.process_image = ProcessImage(self.fileName)
+        self.process_image.signal_show_image.connect(self.showImage)
+        self.process_image.start()
+
+    def showImage(self, image):
+        pixmap = convertCVImage2QtImage(image)
+        self.ui.lbl_output.setPixmap(pixmap)
 
 
 if __name__ == "__main__":
