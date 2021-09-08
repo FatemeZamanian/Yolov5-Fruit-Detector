@@ -21,4 +21,5 @@ To run inference on an image or video Run this command:
 ```
 python main.py 
 ```
-
+## For future:
+- The data set used is here : https://bit.ly/3yVFViL
