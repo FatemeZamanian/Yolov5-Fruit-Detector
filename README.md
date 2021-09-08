@@ -1,8 +1,9 @@
-## Yolov5 Object Detector
+## Yolov5 Object(Fruits) Detector
 
 ## Requirements
 - Either Linux or Windows. We recommend Linux for better performance.
 - Python 3.6+ and PyTorch 1.7+.
+
 
 ## Installation
 
@@ -10,15 +11,15 @@ To install dependencies run this command:
 ```
 pip install -r requirements.txt
 ```
+- download model from this link: https://bit.ly/38M6ZGL
+-  and put them on weights directory
 
-## Run Demo
+## Run Ui
 
-To run inference on an image Run this command:
+To run inference on an image or video Run this command:
 
 ```
-python detect_image.py --source ./input/cars1.jpg
+python main.py 
 ```
-downloading models automatically from the latest YOLOv5 release and result image saves in `/output` dir. 
-
-
-Note that you can pass some other arguments. Take a look at `detect_image.py` file.
+## For future:
+- The data set used is here : https://bit.ly/3yVFViL
