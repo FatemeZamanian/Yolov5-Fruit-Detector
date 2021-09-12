@@ -1,4 +1,4 @@
-## Yolov5 Object(Fruits) Detector
+## Yolov5 Fruits Detector
 
 ![image56](https://user-images.githubusercontent.com/78360814/132986719-930cfd38-df77-453b-9f98-a3be51ead240.jpeg)
 
