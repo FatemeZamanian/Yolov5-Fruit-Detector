@@ -13,7 +13,7 @@ To install dependencies run this command:
 ```
 pip install -r requirements.txt
 ```
-- download model from this link: https://bit.ly/38M6ZGL
+- download model from this link: https://drive.google.com/file/d/1W6qZeutnqnp3YX9w4iYgR44xsoi_64ff/view?usp=sharing
 -  and put them on weights directory
 
 ## Run Ui
